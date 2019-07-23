@@ -67,7 +67,7 @@ class TasksController extends Controller
             'status' => 'required|max:10',
         ]);
         
-        if (\Auth::id() === $request->user_id) {
+        if (\Auth::id() === $task->user_id) {
         $request->user()->tasks()->create([
             'content' => $request->content,
             'status' => $request->status,
@@ -91,15 +91,10 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function show($id)
     {
         $task = Task::find($id);
-        $task = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
-        
-        $task = [
-            'user' => $user,
-            'tasks' => $tasks,
-        ];
         
         return view('tasks.show', [
             'task' => $task,

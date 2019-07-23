@@ -17,6 +17,7 @@ class UsersController extends Controller
         ]);
     }
     
+    /*
     public function show($id)
     {
         $user = User::find($id);
@@ -25,6 +26,7 @@ class UsersController extends Controller
             'user' => $user,
         ]);
     }
+    */
     
     public function show($id)
     {
