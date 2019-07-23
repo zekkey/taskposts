@@ -67,20 +67,20 @@ class TasksController extends Controller
             'status' => 'required|max:10',
         ]);
         
+        /*
         if (\Auth::id() === $task->user_id) {
         $request->user()->tasks()->create([
             'content' => $request->content,
             'status' => $request->status,
         ]);
         }
-        /*
-        if (\Auth::id() === $request->user_id) {
+        */
+
         $task = new Task;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
         }
-        */
         
         return redirect('/');
     }
