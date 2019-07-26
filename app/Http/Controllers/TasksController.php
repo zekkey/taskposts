@@ -66,20 +66,12 @@ class TasksController extends Controller
             'content' => 'required|max:191',
             'status' => 'required|max:10',
         ]);
-        
-        $request->user()->tasks()->create([
-            'user_id' => $request->user_id,
-            'status' => $request->status,
-            'content' => $request->content,
-        ]);
 
-        /*
         $task = new Task;
-        $task->user_id = $request->user_id;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
-        */
+        
         return redirect('/');
     }
 
